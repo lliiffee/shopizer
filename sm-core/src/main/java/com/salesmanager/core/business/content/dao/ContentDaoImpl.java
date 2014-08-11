@@ -226,7 +226,7 @@ public class ContentDaoImpl extends SalesManagerEntityDaoImpl<Long, Content> imp
 			);
 		
 		Content content = query.singleResult(qContent);
-		
+		System.out.println("#################"+content);
 		return content;
 	}
 	

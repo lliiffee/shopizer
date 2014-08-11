@@ -61,7 +61,7 @@ public class LandingController {
 	
 	@RequestMapping(value={Constants.SHOP_URI + "/home.html",Constants.SHOP_URI +"/", Constants.SHOP_URI}, method=RequestMethod.GET)
 	public String displayLanding(Model model, HttpServletRequest request, HttpServletResponse response, Locale locale) throws Exception {
-		
+		//request attribute 由 storeFilter设置。。。
 		Language language = (Language)request.getAttribute(Constants.LANGUAGE);
 		
 		MerchantStore store = (MerchantStore)request.getAttribute(Constants.MERCHANT_STORE);
@@ -75,7 +75,7 @@ public class LandingController {
 		item.setLabel(messages.getMessage(Constants.HOME_MENU_KEY, locale));
 		item.setUrl(Constants.HOME_URL);
 
-		
+	//头部面包屑导航。。。	
 		Breadcrumb breadCrumb = new Breadcrumb();
 		breadCrumb.setLanguage(language);
 		
@@ -86,7 +86,7 @@ public class LandingController {
 		request.getSession().setAttribute(Constants.BREADCRUMB, breadCrumb);
 		request.setAttribute(Constants.BREADCRUMB, breadCrumb);
 		/** **/
-		
+		//页面主题配置内容。。		
 		if(content!=null) {
 			
 			ContentDescription description = content.getDescription();
@@ -103,7 +103,7 @@ public class LandingController {
 			request.setAttribute(Constants.REQUEST_PAGE_INFORMATION, pageInformation);
 			
 		}
-		
+		//热销产品
 		ReadableProductPopulator populator = new ReadableProductPopulator();
 		populator.setPricingService(pricingService);
 
@@ -124,7 +124,7 @@ public class LandingController {
 		
 		/** template **/
 		StringBuilder template = new StringBuilder().append("landing.").append(store.getStoreTemplate());
-
+		LOGGER.error("+++++++++++++++++++++++++++++++++++++++++++++++++++++++"+template.toString());
 		return template.toString();
 	}
 	

@@ -16,7 +16,7 @@ response.setDateHeader ("Expires", -1);
 
 			<jsp:include page="/pages/shop/templates/bootstrap/sections/breadcrumb.jsp" />
             
-            
+            1
             <div class="row-fluid">
 
                 <div class="span12">
